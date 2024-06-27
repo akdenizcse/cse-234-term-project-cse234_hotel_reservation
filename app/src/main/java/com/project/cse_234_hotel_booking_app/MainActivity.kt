@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -52,6 +53,7 @@ import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import com.project.cse_234_hotel_booking_app.buttonlarge.ButtonLarge
 import com.project.cse_234_hotel_booking_app.buttonlarge.Design
+import com.project.cse_234_hotel_booking_app.model.AuthViewModel
 import com.project.cse_234_hotel_booking_app.navigation.RootNavigationGraph
 import com.project.cse_234_hotel_booking_app.ui.theme.Cse234HotelBookingAppTheme
 
@@ -60,7 +62,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            RootNavigationGraph(navController = rememberNavController())
+            val authViewModel: AuthViewModel by viewModels()
+            RootNavigationGraph(navController = rememberNavController(), authViewModel = authViewModel)
         }
     }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "859617875859",
+    "project_id": "cse-234-hotel-booking-app",
+    "storage_bucket": "cse-234-hotel-booking-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859617875859:android:db296da6bacf6e71fbfa66",
+        "android_client_info": {
+          "package_name": "com.project.cse_234_hotel_booking_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGLVKpF-tP0cZA-pVmqH0AmNqTQ0NevTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

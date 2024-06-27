@@ -57,16 +57,17 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.project.cse_234_hotel_booking_app.model.AuthViewModel
 import com.project.cse_234_hotel_booking_app.navigation.BottomNavbarScreen
 import com.project.cse_234_hotel_booking_app.navigation.HomeNavGraph
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun HomePage(navController: NavHostController = rememberNavController()) {
+fun HomePage(navController: NavHostController = rememberNavController(),authViewModel: AuthViewModel) {
     Scaffold(
         bottomBar = { BottomBar(navController = navController) }
     ) {
-        HomeNavGraph(navController = navController)
+        HomeNavGraph(navController = navController,authViewModel = authViewModel)
     }
 }
 

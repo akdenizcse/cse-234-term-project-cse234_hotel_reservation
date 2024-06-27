@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.project.cse_234_hotel_booking_app.model.AuthViewModel
 import com.project.cse_234_hotel_booking_app.pages.BookingSummaryPage
 import com.project.cse_234_hotel_booking_app.pages.BookingsPage
 import com.project.cse_234_hotel_booking_app.pages.ConfirmPage
@@ -18,7 +19,7 @@ import com.project.cse_234_hotel_booking_app.pages.PaymentPage
 import com.project.cse_234_hotel_booking_app.pages.ProfilePage
 
 @Composable
-fun HomeNavGraph(navController: NavHostController) {
+fun HomeNavGraph(navController: NavHostController,authViewModel: AuthViewModel) {
     NavHost(
         navController = navController,
         route = Graph.HOME,
@@ -34,7 +35,8 @@ fun HomeNavGraph(navController: NavHostController) {
             BookingsPage(navController = navController)
         }
         composable(route = BottomNavbarScreen.Profile.route) {
-            ProfilePage(navController = navController)
+            ProfilePage(navController = navController,authViewModel = authViewModel
+            )
         }
         detailsNavGraph(navController = navController)
     }

@@ -4,11 +4,12 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
+import com.project.cse_234_hotel_booking_app.model.AuthViewModel
 import com.project.cse_234_hotel_booking_app.pages.LoginPage
 import com.project.cse_234_hotel_booking_app.pages.MainContent
 import com.project.cse_234_hotel_booking_app.pages.SignUpPage
 
-fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
+fun NavGraphBuilder.authNavGraph(navController: NavHostController,authViewModel: AuthViewModel) {
     navigation(
         route = Graph.AUTHENTICATION,
         startDestination = AuthScreen.Main.route
@@ -25,11 +26,13 @@ fun NavGraphBuilder.authNavGraph(navController: NavHostController) {
         }
         composable(route = AuthScreen.Login.route) {
             LoginPage(
-                navController = navController
+                navController = navController,
+                authViewModel = authViewModel
             )
         }
         composable(route = AuthScreen.SignUp.route) {
-            SignUpPage(navController = navController)
+            SignUpPage(navController = navController,authViewModel = authViewModel
+            )
         }
     }
 }
@@ -38,5 +41,4 @@ sealed class AuthScreen(val route: String) {
     object Main : AuthScreen(route = "MAIN")
     object Login : AuthScreen(route = "LOGIN")
     object SignUp : AuthScreen(route = "SIGN_UP")
-    object Forgot : AuthScreen(route = "FORGOT")
 }

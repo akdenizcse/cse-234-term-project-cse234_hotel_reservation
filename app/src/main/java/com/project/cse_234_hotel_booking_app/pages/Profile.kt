@@ -42,6 +42,7 @@ import com.project.cse_234_hotel_booking_app.R
 import com.project.cse_234_hotel_booking_app.SimpleTopBar
 import com.project.cse_234_hotel_booking_app.buttonlarge.ButtonLarge
 import com.project.cse_234_hotel_booking_app.buttonlarge.Design
+import com.project.cse_234_hotel_booking_app.model.AuthViewModel
 import com.project.cse_234_hotel_booking_app.navigation.AuthScreen
 import com.project.cse_234_hotel_booking_app.navigation.DetailsScreen
 import com.project.cse_234_hotel_booking_app.navigation.Graph
@@ -49,7 +50,7 @@ import com.project.cse_234_hotel_booking_app.navigation.Graph
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun ProfilePage(navController: NavHostController) {
+fun ProfilePage(navController: NavHostController,authViewModel: AuthViewModel) {
     Scaffold(
         topBar = {
             SimpleTopBar(

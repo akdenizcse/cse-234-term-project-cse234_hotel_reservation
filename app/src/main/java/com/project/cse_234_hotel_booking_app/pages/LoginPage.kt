@@ -1,5 +1,6 @@
 package com.project.cse_234_hotel_booking_app.pages
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,7 +20,9 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -27,6 +30,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
@@ -40,17 +44,41 @@ import com.project.cse_234_hotel_booking_app.CustomTextField
 import com.project.cse_234_hotel_booking_app.R
 import com.project.cse_234_hotel_booking_app.SimpleTopBar
 import com.project.cse_234_hotel_booking_app.buttonlarge.fONTSPRINGDEMOOktahRoundMedium
+import com.project.cse_234_hotel_booking_app.model.AuthState
+import com.project.cse_234_hotel_booking_app.model.AuthViewModel
 import com.project.cse_234_hotel_booking_app.navigation.AuthScreen
 import com.project.cse_234_hotel_booking_app.navigation.Graph
 
 @Composable
-fun LoginPage(navController: NavHostController) {
+fun LoginPage(navController: NavHostController,authViewModel: AuthViewModel) {
 
     var password by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
 
-
     val isButtonEnabled = email.isNotEmpty() && password.isNotEmpty()
+
+    val authState = authViewModel.authState.observeAsState()
+    val context = LocalContext.current
+
+    LaunchedEffect(Unit) {
+        authViewModel.resetAuthState()
+    }
+
+    LaunchedEffect(authState.value) {
+        when (authState.value){
+            is AuthState.Authenticated -> navController.navigate(Graph.HOME) {
+                popUpTo(navController.graph.startDestinationId) {
+                    saveState = true
+                }
+                launchSingleTop = true
+                restoreState = true
+            }
+            is AuthState.Error -> Toast.makeText(context,
+                (authState.value as AuthState.Error).message, Toast.LENGTH_LONG).show()
+            else -> Unit
+                }
+        }
+
 
     Scaffold(
         topBar = {
@@ -114,13 +142,7 @@ fun LoginPage(navController: NavHostController) {
                         .clip(RoundedCornerShape(50))
                         .height(61.dp),
                     onClick = {
-                        navController.navigate(Graph.HOME) {
-                            popUpTo(navController.graph.startDestinationId) {
-                                saveState = true
-                            }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
+                            authViewModel.login(email,password)
                     },
                     colors = ButtonDefaults.buttonColors(
                         backgroundColor = colorResource(id = R.color.primary_Color),

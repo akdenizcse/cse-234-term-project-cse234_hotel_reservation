@@ -21,18 +21,29 @@ This project is an Android application built using Kotlin and Jetpack Compose fo
 - **Login Page**: Allows users to log in with their email and password using Firebase Authentication.
 - **Signup Page**: Enables users to create a new account with their email and password via Firebase Authentication.
 
+https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/1d70c7a5-5041-469a-8ea1-f9956456d4b3
+
 ### Home Navigation and  Bottom Bar Navigation
-- **HomePage**: After authentication, users can search for hotels using this page.
-- **HomePage**: Part of the bottom bar navigation, allowing users to search for hotels.
+- **HomePage**: After authentication, users can search for hotels using this page and Part of the bottom bar navigation, allowing users to search for hotels..
 - **Favorites Page**: Displays a list of hotels that the user has marked as favorites.
 - **My Bookings Page**: Shows the user's previous bookings, with options to view details or cancel bookings.
 - **Profile Page**: Allows users to view and update their profile information.
 
+| Home Page | Favorites Page | My Bookings Page | Profile Page |
+| ----------- | ----------- | ----------- | ----------- |
+| <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/11290ae9-86f6-42f1-8666-e550e37074a7" width="250"  /> | <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/9a487f12-b4d6-48db-b1e6-ae91a5d002af" width="250"  /> | <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/58a3068f-2dca-4fd7-b522-f4f87abd2fbf" width="250"  /> | <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/0d29376c-cf13-40b7-afd7-a7592441fc4c" width="250"  /> |
+
+
 ### Details Navigation
-- **FindScreen Page**: Accessible after searching for hotels on the HomePage.
-- **HotelsDetail Page**: Navigated from the FindScreen Page for more detailed information about a selected hotel.
+- **Hotels Page**: Accessible after searching for hotels on the HomePage.
+- **Hotel Detail Page**: Navigated from the FindScreen Page for more detailed information about a selected hotel.
 - **Booking Summary Page**: Accessible after clicking "Book Now" on the HotelsDetail Page.
 - **Payment Page**: The final step in the booking process, navigated from the Booking Summary Page.
+
+| Hotels Page | Hotel Details Page | Booking Summary Page | Payment Page | Payment Confirm Page |
+| ----------- | ----------- | ----------- | ----------- | ----------- |
+| <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/24add02a-42b0-4b83-9420-f42e2141dedf" width="250"  /> | <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/360a6a7e-c079-47cc-9c23-38df4598f239" width="250"  /> | <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/2265a442-0c8d-43c2-8480-029003e974d2" width="250"  /> | <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/20ec8c86-c7fb-4d50-b4e3-27a1e88ba473" width="250"  /> | <img src="https://github.com/akdenizcse/cse-234-term-project-cse234_hotel_reservation/assets/114577591/59c0deae-1c00-478a-bf88-0251ea8c3aed" width="250"  /> |
+
 
 ## Project Structure
 
